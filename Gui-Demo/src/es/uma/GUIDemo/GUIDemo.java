@@ -49,8 +49,8 @@ public class GUIDemo implements ActionListener {
 	 */
 	private static String appTitle = "GUI Demo Application";
 	private static String aboutText = "GUI Demo Application\n"
-			+ "Copyright © by University of Málaga 2023\n" + "\n"
-			+ "Developed by Antonio Maña";
+			+ "Copyright Â© by University of MÃ¡laga 2023\n" + "\n"
+			+ "Developed by Antonio MaÃ±a";
 	
 	private final String imagesPath = "./src/resources/images/";
 	private String selectedPane1Image = "image1.png";
