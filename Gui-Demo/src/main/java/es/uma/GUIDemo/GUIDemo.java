@@ -47,9 +47,15 @@ public class GUIDemo implements ActionListener {
 	/*
 	 * Class attributes
 	 */
+<<<<<<< HEAD:Gui-Demo/src/main/java/es/uma/GUIDemo/GUIDemo.java
 	private static final String appTitle = "GUIDemo";
 	private static final String aboutText = "GUI Demo Application\n"
 			+ "Copyright � by University of M�laga 2023\n" + "\n"
+=======
+	private static String appTitle = "GUI Demo Application";
+	private static String aboutText = "GUI Demo Application\n"
+			+ "Copyright © by University of Málaga 2023\n" + "\n"
+>>>>>>> origin/main:Gui-Demo/src/es/uma/GUIDemo/GUIDemo.java
 			+ "Developed by Antonio Maña";
 	
 	private final String imagesPath = "./src/resources/images/";
