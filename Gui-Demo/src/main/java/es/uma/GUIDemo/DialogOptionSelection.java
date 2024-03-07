@@ -18,7 +18,7 @@ import javax.swing.JPanel;
 /**
  * This class shows a dialog for selecting an option
  * 
- * @author Antonio Maña
+ * @author Antonio Mana
  * 
  */
 class DialogOptionSelection extends JDialog implements ActionListener {

@@ -18,7 +18,7 @@ import com.formdev.flatlaf.util.SystemInfo;
 
 /**
  * 
- * @author Antonio Maña
+ * @author Antonio Mana
  *
  */
 class ToolbarPane3 extends JPanel {

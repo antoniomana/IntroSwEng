@@ -19,7 +19,7 @@ public class Utils {
 /**
  * This class contains utilities for creating swing GUIs
  * 
- * @author Antonio Maña
+ * @author Antonio Mana
  *  
  */
 

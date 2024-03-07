@@ -1,1 +1,1 @@
-package es.uma.GUIDemo;
+package main.java.es.uma.GUIDemo;

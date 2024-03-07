@@ -1,48 +1,25 @@
 package es.uma.GUIDemo;
 
-import static java.awt.event.InputEvent.CTRL_DOWN_MASK;
+import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.util.SystemInfo;
 
-import java.awt.AWTKeyStroke;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.EventQueue;
-import java.awt.Font;
-import java.awt.Insets;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import javax.swing.border.LineBorder;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
-
 import java.io.File;
 import java.io.IOException;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
-import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
-import javax.swing.Box;
-import javax.swing.ImageIcon;
-import javax.swing.JColorChooser;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JToolBar;
-import javax.swing.KeyStroke;
-import javax.swing.SwingUtilities;
-// import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.border.LineBorder;
+import static java.awt.event.InputEvent.CTRL_DOWN_MASK;
 
-import com.formdev.flatlaf.FlatLightLaf;
-import com.formdev.flatlaf.util.SystemInfo;
-
-public class GUIDemo implements ActionListener {
+public class GUIDemo2 implements ActionListener {
 
 	/*
 	 * Class attributes
@@ -55,22 +32,22 @@ public class GUIDemo implements ActionListener {
                                        GUI Demo Application\r
                                        Copyright (c) by University of Malaga 2023-2024\r
                                        Developed by Antonio Mana""";
-	
+
 	private final String ImagesPath = "./src/resources/images/";
 	private String selectedPane1Image = "image1.png";
 	private String selectedPane2Image = "image1.png";
 	private String selectedPane3Image = "image1.png";
-	
+
 	/*
 	 * Auxiliary variables
 	 */
-	
+
 	// Selects key to be used in menu accelerators
-	private final int CTRL_CMD = CTRL_DOWN_MASK; 
-	
+	private final int CTRL_CMD = CTRL_DOWN_MASK;
+
  	private final int WINDOW_H_SIZE = 1200;
 	private final int WINDOW_V_SIZE = 600;
-	
+
 	/*
 	 * GUI Components
 	 */
@@ -116,9 +93,9 @@ public class GUIDemo implements ActionListener {
 
 	/**
 	 * Detects system and calls the constructor GUIDemo()
-	 * 
+	 *
 	 * @param args - command line arguments
-     * 
+     *
 	 */
 	public static void main(String[] args)
 //	throws UnsupportedLookAndFeelException
@@ -170,14 +147,14 @@ public class GUIDemo implements ActionListener {
 			}
 		}
 		SwingUtilities.invokeLater(FlatLightLaf::setup);
-		EventQueue.invokeLater(GUIDemo::new);
+		EventQueue.invokeLater(GUIDemo2::new);
 	}
 
 	/**
 	 * Creates the GUI components
-	 * 
+	 *
 	 */
-	public GUIDemo() {
+	public GUIDemo2() {
 		initializeModel();
 		createFrame();
 		createToolbar();
@@ -236,10 +213,7 @@ public class GUIDemo implements ActionListener {
 	 * Creates the LEFT pane
 	 */
 	public void createLeftPane(String selectedPane1Image) {
-		leftPane = Utils.createBorderJPanel(leftPanelBackgroundColor);
-		leftPane.setPreferredSize(new Dimension(400, 600));
-		leftPane.setFont(new Font("Courier", Font.PLAIN, 14));
-		leftPane.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		leftPane = initializePanel(leftPanelBackgroundColor);
 
 		// Add Info Panel at the top of pane
 		JPanel infoPane1 = Utils.createBorderJPanel(leftPanelBackgroundColor);
@@ -286,15 +260,19 @@ public class GUIDemo implements ActionListener {
 		frame.setVisible(true);
 	}
 
+	private JPanel initializePanel(Color newPanelBackgroundColor) {
+		JPanel newPane = Utils.createBorderJPanel(newPanelBackgroundColor);
+		newPane.setPreferredSize(new Dimension(400, 600));
+		newPane.setFont(new Font("Courier", Font.PLAIN, 14));
+		newPane.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		return newPane;
+	}
+
 	/**
 	 * Creates the CENTER pane
 	 */
 	public void createCenterPane(String selectedPane2Image) {
-
-		centerPane = Utils.createBorderJPanel(centerPanelBackgroundColor);
-		centerPane.setPreferredSize(new Dimension(400, 600));
-		centerPane.setFont(new Font("Courier", Font.PLAIN, 14));
-		centerPane.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		centerPane = initializePanel(centerPanelBackgroundColor);
 
 		// Add Info Panel at the top of pane
 		JPanel infoPane2 = Utils.createBorderJPanel(centerPanelBackgroundColor);
@@ -348,10 +326,7 @@ public class GUIDemo implements ActionListener {
 	 */
 	public void createRightPane(String selectedPane3Image) {
 
-		rightPane = Utils.createBorderJPanel(rightPanelBackgroundColor);
-		rightPane.setPreferredSize(new Dimension(400, 600));
-		rightPane.setFont(new Font("Courier", Font.PLAIN, 14));
-		rightPane.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		rightPane = initializePanel(rightPanelBackgroundColor);
 
 		// Info Panel at the top of pane
 		JPanel infoPane3 = Utils.createBorderJPanel(rightPanelBackgroundColor);
